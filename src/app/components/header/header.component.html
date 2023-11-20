@@ -1,0 +1,43 @@
+<header>
+  <div class="row">
+    <div class="col-8 col-md-8 col-lg-8 m-0 p-0 container-icon-directory">
+      <div class="box-icon-directory">
+        <img src="../assets/css/img/os-removebg-preview.png" alt="Logo" class="logo-header"
+          [routerLink]="['/pagina-principal']">
+        <div class="homepage" [routerLink]="['/pagina-principal']">Inicio</div>
+        <div class="all-animes" [routerLink]="['/todos-los-animes']"> Directorio Anime</div>
+      </div>
+    </div>
+    <div class="col-4 col-md-4 col-lg-4 m-0 p-0 container-search-favorite">
+      <div class="box-search-favorite" >
+
+        <a class="search-icon" [routerLink]="['/buscar']">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <a class="favorite-icon" (click)="onFavoriteClick(decodedToken.id)">
+          <i class="fa-regular fa-bookmark"></i>
+        </a>
+
+        <div *ngIf="!decodedToken">
+          <a class="text-white icon-user" (click)="toggleMenu()"> <i class="fa-regular fa-user"></i></a>
+          <div class="dropdown-menu no-sesion" [ngClass]="{'show': isMenuVisible}" *ngIf="isMenuVisible">
+            <li class="option" [routerLink]="['/registrarse']">Crear Cuenta</li>
+            <li class="option" [routerLink]="['/iniciar-sesion']">Iniciar Sesion</li>
+          </div>
+        </div>
+
+        <div *ngIf="decodedToken">
+          <a class="icon-user icon-user-sesion" (click)="toggleMenu()"> {{ decodedToken.name }}</a>
+          <div class="dropdown-menu" [ngClass]="{'show': isMenuVisible}" *ngIf="isMenuVisible">
+            <li class="option-name">{{decodedToken.name}}</li>
+            <div class="line"></div>
+            <li class="option" (click)="onFavoriteClick1(decodedToken.id)">Favoritos</li>  
+            <li class="option" (click)="onAcountClick()">Mi Cuenta</li> 
+            <li class="option" (click)="logout()">Desconectar</li> 
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

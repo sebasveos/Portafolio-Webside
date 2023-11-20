@@ -1,0 +1,81 @@
+.megaConteiner {
+    width: 1238px;
+    height: 400px;
+    background: rgb(60, 60, 60);
+}
+
+.titleAnime {
+    margin: 0px;
+    width: 150px;
+    color: rgb(174, 88, 255);
+    text-align: left;
+}
+
+.titleAnime:hover {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.parrafo {
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.part {
+    float: left;
+    width: 50%;
+    margin: 0px;
+}
+
+.icon-cap-anime {
+    display: flex;
+    justify-content: center;
+
+}
+
+.icon {
+    text-align: right;
+    width: 20px;
+    cursor: pointer;
+    color: aqua;
+}
+.icon1{
+    text-align: right;
+    width: 20px;
+    cursor: pointer;
+    color: blueviolet;
+}
+
+.containerRight img {
+    width: 150px;
+}
+
+.containerRight {
+    width: 80%;
+    padding: 2px;
+    cursor: pointer;
+    /* Agrega una transición suave para el efecto */
+}
+
+.containerRight:hover {
+    filter: brightness(1.05);
+    transition: 0.8s;
+    background-color: rgba(202, 202, 202, 0.422);
+}
+
+.col-8 {
+    height: 50px;
+    /* Establece la altura máxima en píxeles */
+    /* Oculta cualquier contenido que sobresalga del contenedor */
+}
+
+.col-4 {
+    justify-content: right;
+    width: 358px;
+}
+
+.text-right {
+    text-align: right;
+    justify-content: right;
+}

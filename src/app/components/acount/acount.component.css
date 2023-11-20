@@ -1,0 +1,68 @@
+.acount-container {
+    background-color: rgb(42, 42, 42);
+    height: 160px;
+    border-radius: 20px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.acount-container h1{
+    margin-left: 50px;
+}
+.acount-container-config {
+    background-color: rgb(42, 42, 42);
+    height: auto;
+    border-radius: 20px;
+    width: 100%;
+}
+.container-change-information, .container-text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.con{
+    background-color: rgb(61, 60, 60);
+    height:auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.input-chage-information {
+    background-color: rgb(128, 128, 128);
+    border: none;
+    padding: 7px;
+    width: 80%;
+    border-radius: 10px;
+    margin: 6px;
+    margin-top: 20px;
+}
+
+.button-chage-information{
+    background-color: rgb(183, 43, 226);
+    padding: 7px;
+    width: 80%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.con p{
+    display: flex;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.con h4{
+    margin-top: 20px;
+}
+::placeholder{
+    color: rgb(61, 61, 61);
+}

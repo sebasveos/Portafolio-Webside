@@ -1,0 +1,160 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.buttons-searchAllAnimes {
+  display: flex;
+  justify-content: left;
+}
+.searchAllanimes, 
+.search1 {
+  background-color: rgb(63, 63, 63);
+  padding: 10px;
+  width: 149px;
+  margin: 10px;
+  border-radius: 7px;
+  margin-bottom: 40px;
+
+  color: white;
+  cursor: pointer;
+}
+
+.search1 {
+  background-color: rgb(151, 41, 255);
+}
+
+
+.main_container:hover .hover-text {
+  opacity: 1.9;
+}
+.image img {
+  width: 86%;
+  height: 110%;
+  margin-bottom: 10px;
+}
+.title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  left: 5px !important;
+  font-size: 15px;
+}
+.description {
+  display: flex;
+  text-align: left;
+  font-size: 12px;
+}
+.icon {
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+}
+.hover-text .icon,
+.icon1,
+.icon2 {
+  pointer-events: auto;
+}
+.hover-text .icon2 {
+  pointer-events: auto;
+}
+.main_container:hover .hover-text .icon,
+.icon1,
+.icon2 {
+  opacity: 1;
+}
+.icon2 {
+  position: absolute;
+  bottom: 0;
+  right: 60%;
+  z-index: 2;
+  cursor: pointer;
+}
+.modal-content p {
+  margin: 6px;
+}
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.486);
+}
+.modal-content {
+  width: 50%;
+  color: white;
+  background-color: #252525;
+  padding: 20px;
+  border: 1px solid #00000000;
+  text-align: center;
+  height: 400px;
+  border-radius: 0px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 22px;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.titleAllAnimes {
+  margin-top: 60px;
+}
+a:hover {
+  background-color: #555;
+}
+.actived {
+  background-color: #4caf50;
+}
+.searchAllanimes {
+  position: relative;
+  cursor: pointer;
+  justify-content: left;
+  text-align: left;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.icon1 {
+  position: absolute;
+  bottom: 0;
+  right: 71%;
+}
+.main_container {
+  position: relative;
+  z-index: 1;
+}
+.image-Hinata img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 130px;
+  max-height: 130px;
+}
+.buttons-sesion {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+.button-sesion {
+  font-size: 13px;
+  border-radius: 2px;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 200px;
+  margin-right: 10px;
+  /* Espacio entre los botones */
+  background-color: rgb(153, 59, 197);
+}
+.title-animes {
+  font: bold 90% monospace;
+}

@@ -1,0 +1,144 @@
+<div class="div"></div>
+
+<div class="image sao " *ngIf="anime.name == 'Sword Art Online'">
+  <img src="../../../assets/css/img/Capturas de episodios/Sword Art Online/Sword Art Online Anime.png" alt="">
+</div>
+<div class="image onePiece " *ngIf="anime.name == 'One Piece'">
+  <img src="../../../assets/css/img/Capturas de episodios/One Piece/One Piece Anime.png" alt="">
+</div>
+<div class="image kimetsu " *ngIf="anime.name == 'Kimetsu no Yaiba'">
+  <img src="../../../assets/css/img/Capturas de episodios/Kimetsu no Yaiba/Kimetsu no Yaiba Anime.png" alt="">
+</div>
+<div class="image inazumaEleven" *ngIf="anime.name == 'Inazuma Eleven'">
+  <img src="../../../assets/css/img/Capturas de episodios/Inazuma Eleven/Inazuma Eleven Anime.png" alt="">
+</div>
+<div class="image shigatsu" *ngIf="anime.name == 'Shigatsu wa Kimi no Uso'">
+  <img src="../../../assets/css/img/Capturas de episodios/Shigatsu wa Kimi no Uso/Shigatsu wa Kimi no Uso Anime.png" alt="">
+</div>
+<div class="image yourName" *ngIf="anime.name == 'Your  Name'">
+  <img src="../../../assets/css/img/Capturas de episodios/Your name/Your Name Anime.png" alt="">
+</div>
+<div class="image captainTsubasa" *ngIf="anime.name == 'Captain Tsubasa'">
+  <img src="../../../assets/css/img/Capturas de episodios/Captain Tsubasa/Captain Tsubada Anime.png" alt="">
+</div>
+<div class="image haikyu " *ngIf="anime.name == 'Haikyuu'">
+  <img src="../../../assets/css/img/Capturas de episodios/Haikyuu/Haikyuu Anime.png" alt="">
+</div>
+<div class="image dragonBallZ" *ngIf="anime.name == 'Dragon Ball Z'">
+  <img src="../../../assets/css/img/Capturas de episodios/Dragon Ball Z/Dragon Ball Z Anime.png" alt="">
+</div>
+<div class="image narutoShippuden" *ngIf="anime.name == 'Naruto Shippuden'">
+  <img src="../../../assets/css/img/Capturas de episodios/Naruto Shippuden/Naruto Shippuden Anime.png" alt="">
+</div>
+
+<div class="containerAnime">
+  <div class="containerInfo">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-8">
+        <h2>{{anime.name}}</h2><br>
+        <a class="favorite  " *ngIf="decodedToken && !isAnimeInFavorites"
+          (click)="addFavoriteAnime($event,decodedToken.id, anime._id)"> <i class="fa-regular fa-bookmark"
+            title="Anadir a favoritos"></i> AÑADIR A FAVORITOS</a>
+        <a class="favorite" *ngIf="decodedToken && isAnimeInFavorites" (click)="removeFavoriteAnime($event, anime._id)">
+          <i class="fa-regular fa-bookmark" title="Anadir a favoritos"></i> ELIMINAR DE FAVORITOS</a>
+        <a class="favorite" *ngIf="!decodedToken" (click)="toggleModal($event)"> <i class="fa-regular fa-bookmark"
+            title="Anadir a favoritos"></i> AÑADIR A FAVORITOS</a><br><br>
+
+        <p>{{anime.description}}</p>
+
+        <div class="categoryOneAnime" *ngFor="let category of anime.category" (click)="onAnimeClick(category)">
+          {{ category }}
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 seeCap" (click)="onCapAnime(anime.name, 1, anime._id)">
+        <img class="image1" *ngIf="anime.name == 'Haikyuu'"
+          src="../../../assets/css/img/Capturas de episodios/Haikyuu/Haikyuu cap 1.jpg" alt="">
+        <img class="image1" *ngIf="anime.name == 'Sword Art Online'"
+          src="../../../assets/css/img/Capturas de episodios/Sword Art Online/SaoCap1.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'One Piece'"
+          src="../../../assets/css/img/Capturas de episodios/One Piece/One piece cap 1.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'Kimetsu no Yaiba'"
+          src="../../../assets/css/img/Capturas de episodios/Kimetsu no Yaiba/Kimetsu cap 1.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'Inazuma Eleven'"
+          src="../../../assets/css/img/Capturas de episodios/Inazuma Eleven/Inazuma eleven cap 1.webp" alt="">
+        <img class="image1" *ngIf="anime.name == 'Shigatsu wa Kimi no Uso'"
+          src="../../../assets/css/img/Capturas de episodios/Shigatsu wa Kimi no Uso/shigatsu cap 1.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'Your Name'"
+          src="../../../assets/css/img/Capturas de episodios/Your name/your name cap.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'Captain Tsubasa'"
+          src="../../../assets/css/img/Capturas de episodios/Captain Tsubasa/captain tsubasa cap 1.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'Dragon Ball Z'"
+          src="../../../assets/css/img/Capturas de episodios/Dragon Ball Z/Dragon Ball z 1.jpe" alt="">
+        <img class="image1" *ngIf="anime.name == 'Naruto Shippuden'"
+          src="../../../assets/css/img/Capturas de episodios/Naruto Shippuden/Naruto cap 1.jpe" alt="">
+        <i class="fa-regular fa-circle-play iconPlay1" style="color: #ffffff;"></i>
+        <div class="buttonCap">
+          <i class="fas fa-play iconPlay"></i>
+          <p>COMENZAR A VER E1</p>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="div1">
+      <h2>Episodios de {{anime.name}}</h2>
+      <ul class="row m-0 p-0">
+        <li class="col-12 col-md-4 col-lg-3 m-0 p-0 d-flex align-items-center justify-content-center caps-anime"
+          *ngFor="let episodeNumber of getAllEpisodes(anime.name)">
+          <i class="fa-regular fa-circle-play"
+            style="color: #ffffff; font-size: 36px; position: absolute; top: 0; left: 50%; transform: translateX(-50%);"></i>
+          <div class="image-all-animes seeCap" (click)="onCapAnime(anime.name, episodeNumber, anime._id)">
+            <img *ngIf="anime.name == 'Sword Art Online'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Sword Art Online/SAO Search.jpg" alt="Anime Image">
+            <img *ngIf="anime.name == 'One Piece'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/One Piece/One piece Search.jpg" alt="Anime Image">
+            <img *ngIf="anime.name == 'Kimetsu no Yaiba'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Kimetsu no Yaiba/Kimetsu Search.png" alt="Anime Image">
+            <img *ngIf="anime.name == 'Inazuma Eleven'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Inazuma Eleven/Superone Search.jpg" alt="Anime Image">
+            <img *ngIf="anime.name == 'Shigatsu wa Kimi no Uso'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Shigatsu wa Kimi no Uso/Shigatsu Search.jpg"
+              alt="Anime Image">
+            <img *ngIf="anime.name == 'Your Name'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Your name/Your name Search.png" alt="Anime Image">
+            <img *ngIf="anime.name == 'Captain Tsubasa'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Captain Tsubasa/Captain Tsubasa Search.jpg"
+              alt="Anime Image">
+            <img *ngIf="anime.name == 'Haikyuu'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Haikyuu/Haikyuu Search.png" alt="Anime Image">
+            <img *ngIf="anime.name == 'Dragon Ball Z'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Dragon Ball Z/Dragon Ball Z Search.jpg"
+              alt="Anime Image">
+            <img *ngIf="anime.name == 'Naruto Shippuden'" class="imageAllAnimes"
+              src="../../../assets/css/img/Capturas de episodios/Naruto Shippuden/Naruto Shippuden Search.jpg"
+              alt="Anime Image">
+              <i class="fa-regular fa-circle-play iconPlay2" style="color: #ffffff;"></i>
+          </div>
+          <h6 (click)="onCapAnime(anime.name, episodeNumber, anime._id)" class="title-all-animes">Episodio {{episodeNumber}}</h6>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal" *ngIf="isModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="toggleModal($event)">&times;</span>
+    <div class="image-Hinata">
+      <img src="../../../assets/css/img/Hinata.png">
+    </div>
+    <h3>Inicia sesión o Crea una cuenta</h3>
+    <p>¡Para comentar, anadir serie y peliculas a tus favoritos! Crea una cuenta de OtakuChino o inicia sesión</p>
+    <div class="buttons-sesion">
+      <div class="button-sesion" [routerLink]="['/iniciar-sesion']">
+        INICIA SESION
+      </div>
+      <div class="button-sesion" [routerLink]="['/registrarse']">
+        CREA UN CUENTA
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-components></app-footer-components>

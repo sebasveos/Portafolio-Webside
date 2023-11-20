@@ -1,0 +1,48 @@
+<div class="div">
+</div>
+
+
+<div class="content-category">
+    <div class="row div-container-category">
+        <div class="">
+            <div class="acount-container">
+                <h1>{{decodedToken.name }}</h1>
+            </div>
+            <div class="row acount-container-config m-0">
+                <div class="col-12 col-md-6 col-lg-7 container-text">
+                    <div class="con">
+                        <h4>Información Personal</h4>
+                        <p>Gestione su Información personal</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-5 container-change-information">
+                    <div class="con">
+                        <input class="input-chage-information" [(ngModel)]="newUserName" type="text" value="{{decodedToken.name}}">
+                        <input class="input-chage-information" [(ngModel)]="password" type="password" placeholder="Contraseña">
+                        <button class="button-chage-information" (click)="updateUserName()">Guardar</button>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="col-12 col-md-6 col-lg-7 container-text">
+                    <div class="con">
+                        <h4>Contraseña</h4>
+                        <p>La longitud de la contraseña debe oscilar entre 8 y 64 dígitos. Debe contener mayúsculas,
+                            minúsculas, caracteres especiales, números y puedes comprobar la fortaleza de la contraseña
+                            en la escala que aparece debajo del campo del formulario.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-5 container-change-information">
+                    <div class="con">
+                        <input class="input-chage-information" [(ngModel)]="currentPassword" type="text" placeholder="Contraseña Actual">
+                        <input class="input-chage-information" [(ngModel)]="newPassword" type="text" placeholder="Nueva Contraseña">
+                        <input class="input-chage-information" [(ngModel)]="confirmPassword" type="text" placeholder="Confirmar Nueva Contraseña">
+                        <button class="button-chage-information">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-footer-components></app-footer-components>

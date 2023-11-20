@@ -1,0 +1,143 @@
+<div class="div"></div>
+
+<section>
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <ng-container *ngFor="let anime of animes">
+          <div
+            *ngIf="anime.name === 'Sword Art Online' || anime.name === 'Dragon Ball Z' || anime.name == 'Haikyuu' || anime.name == 'Naruto Shippuden' || anime.name == 'One Piece' || anime.name == 'Kimetsu no Yaiba'"
+            class="swiper-slide" [attr.data-anime-id]="anime._id" id="{{anime.name}}" (click)="onAnimeClick(anime.name)" >
+            <img
+              [src]="'../../../assets/css/img/Capturas de episodios/' + anime.name + '/' + anime.name + ' sample.jpg' "
+              [alt]="anime.name">
+
+            <div class="hover-text">
+              <h6>{{ anime.name }}</h6>
+              <br>
+              {{ anime.description }}
+              <div class="icon" (click)="onAnimeClick(anime.name)">
+                <i class="fas fa-play m-3 icong" title="Reproducir"></i>
+              </div>
+              <div class="icon1" *ngIf="decodedToken && anime && !anime.isInFavorites" (click)="addFavoriteAnime($event, anime._id)">
+                <i class="fa-regular fa-bookmark m-3 icong" title="AÑADIR A FAVORITOS"></i>
+              </div>
+              <div class="iconfig" *ngIf="decodedToken && anime && anime.isInFavorites" (click)="removeFavoriteAnime($event, anime._id)">
+                <i class="fa-regular fa-bookmark m-3 icong" title="ELIMINAR DE FAVORITOS"></i>
+              </div>
+              <div class="icon1" *ngIf="!decodedToken" (click)="toggleModal($event)">
+                <i class="fa-regular fa-bookmark m-3 icong" title="Añadir a favoritos"></i>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </body>
+  <div class="d-flex align-items-center justify-content-center ">
+    <ul class="row container-samples mt-3 mb-3 p-0">
+      <li class="col" onclick="mostrarImagen('Naruto Shippuden')">
+        <a>
+          Naruto Shippuden <br>
+          Nuevo Episodio
+        </a>
+      </li>
+      <li class="col" onclick="mostrarImagen('Haikyuu')">
+        <a>
+          Haikyuu <br>
+          Nuevo Episodio
+        </a>
+      </li>
+      <li class="col" onclick="mostrarImagen('Sword Art Online')">
+        <a>
+          SAO <br>
+          Nuevo Episodios
+        </a>
+      </li>
+      <li class="col" onclick="mostrarImagen('One Piece')">
+        <a>
+          One piece <br>
+          Nuevo Episodio
+        </a>
+      </li>
+      <li class="col" onclick="mostrarImagen('Dragon Ball Z')">
+        <a>
+          Dragon Ball <br>
+          Nuevo Episodio
+        </a>
+      </li>
+      <li class="col" onclick="mostrarImagen('Kimetsu no Yaiba')">
+        <a>
+          Kimetsu <br>
+          Nuevo Episodio
+        </a>
+      </li>
+    </ul>
+  </div>
+  <br><br>
+
+  <div class="title-animes">
+    <h2>Capitulos semanales</h2>
+
+    <div class="space"></div>
+  </div>
+  
+  
+  <div class="list-animes d-flex align-items-center justify-content-center">
+    <ul class="row row-cols-2 row-cols-md-4 row-cols-lg-3 row-cols-xl-5 animes-emision mt-3 p-0">
+      <ng-container *ngFor="let anime of animes">
+      <li class="col mb-4">
+        <a class="main_container" [attr.data-anime-id]="anime._id" id="anime.name"  (click)="onCapAnime(anime.name,1, anime._id)">
+          <img
+          [src]="'../../../assets/css/img/'+ anime.name + '.jpg' "
+          [alt]="anime.name">         
+          <p>{{anime.name}}</p>
+          <div class="hover-text">
+            <h6>{{anime.name}}</h6>
+            <div class="categories">
+              <div class="category" *ngFor="let category of anime.category" (click)="onAnimeClickCategory(category)">
+                {{ category }}
+              </div>
+      
+            </div>
+            <br>
+            <p>{{ truncateText(anime.description, 140) }}</p>
+            <div class="icon" (click)="onCapAnime(anime.name, 1, anime._id)">
+              <i class="fas fa-play m-3 icong1" title="Reproducir"></i>
+            </div>
+            <div class="icon2" *ngIf="decodedToken && !anime.isInFavorites" (click)="addFavoriteAnime($event, anime._id)">
+              <i class="fa-regular fa-bookmark m-3 icong1" title="Añadir a favoritos"></i>
+            </div>
+            <div class="icon3" *ngIf="decodedToken && anime.isInFavorites" (click)="addFavoriteAnime($event, anime._id)">
+              <i class="fa-regular fa-bookmark m-3 icong1" title="Añadir a favoritos"></i>
+            </div>
+            <div class="icon2" *ngIf="!decodedToken" (click)="toggleModal($event)">
+              <i class="fa-regular fa-bookmark m-3 icong1" title="Añadir a favoritos"></i>
+            </div>
+          </div>
+        </a>
+      </li>
+      </ng-container>
+    </ul>
+  </div>
+  
+  <div class="modal" *ngIf="isModalVisible">
+    <div class="modal-content">
+      <span class="close" (click)="toggleModal($event)">&times;</span>
+      <div class="image-Hinata">
+        <img src="../../../assets/css/img/Hinata.png">
+      </div>
+      <h3>Inicia sesión o Crea una cuenta</h3>
+      <p>¡Para comentar, anadir serie y peliculas a tus favoritos! Crea una cuenta de OtakuChino o inicia sesión</p>
+      <div class="buttons-sesion">
+        <div class="button-sesion" [routerLink]="['/iniciar-sesion']">
+          INICIA SESION
+        </div>
+        <div class="button-sesion" [routerLink]="['/registrarse']">
+          CREA UN CUENTA
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

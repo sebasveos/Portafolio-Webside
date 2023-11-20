@@ -1,0 +1,41 @@
+<header>
+    <div class="box-icon">
+        <div class="logo-container1">
+            <a [routerLink]="['/pagina-principal']">
+                <img src="../assets/css/img/os-removebg-preview.png" alt="">
+            </a>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div class="container" *ngIf="user">
+        <h3>Crear cuenta</h3>
+        <div class="form-container">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+            <div class="login-form">
+                <div class="image">
+                    <img id="userImage" src="../../../assets/css/img/klipartz.com (2).png" alt="">
+                    <img id="userImage1" src="../../../assets/css/img/klipartz.com (1).png" alt="">
+                </div>
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name"
+                    placeholder="Direccion de correo" required>
+                <!--<label id="up-label">Direccion de correo electronico</label>-->
+                <br><br>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password"
+                    placeholder="Contraseña" required>
+                <!--<label id="down-label">Contraseña</label>-->
+            </div>
+            <div class="container-button">
+                <button type="submit" value="Enviar" [disabled]="!userForm.form.valid">CREAR CUENTA</button>
+
+            </div>
+        </form>
+    </div>
+        <div class="create-account">
+            <p>¿Ya tienes cuenta?</p> <a [routerLink]="['/iniciar-sesion']">ACCEDER</a>
+        </div>
+    </div>
+
+</body>
+<app-footer-components></app-footer-components>

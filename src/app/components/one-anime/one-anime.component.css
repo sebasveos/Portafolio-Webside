@@ -1,0 +1,95 @@
+
+.image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    transform: scale(1.5);
+    z-index: -1;
+}
+
+.image.haikyu::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Haikyuu/Haikyuu Anime.png');
+}
+
+.image.sao::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Sword Art Online/Sword Art Online Anime.png');
+}
+
+.image.onePiece::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/One Piece/One Piece Anime.png');
+}
+
+.image.kimetsu::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Kimetsu no Yaiba/Kimetsu no Yaiba Anime.png');
+}
+
+.image.inazumaEleven::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Inazuma Eleven/Inazuma Eleven Anime.png');
+}
+
+.image.shigatsu::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Shigatsu wa Kimi no Uso/Shigatsu wa Kimi no Uso Anime.png');
+}
+
+.image.yourName::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Your name/Your Name Anime.png');
+}
+
+.image.captainTsubasa::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Captain Tsubasa/Captain Tsubada Anime.png');
+}
+
+.image.dragonBallZ::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Dragon Ball Z/Dragon Ball Z Anime.png');
+}
+
+.image.narutoShippuden::before {
+    background-image: url('../../../assets/css/img/Capturas de episodios/Naruto Shippuden/Naruto Shippuden Anime.png');
+}
+.containerAnime {
+    display: flex;
+    justify-content: center;
+}
+.containerInfo {
+    width: 82%;
+}
+
+.iconPlay{
+    margin-right: 8px !important;
+}
+.iconPlay1 {
+    font-size: 50px;
+    position: absolute;
+    top: 70px;
+    left: 43%;
+    z-index: 1;
+  }
+  
+  .iconPlay2{
+    font-size: 50px;
+    position: absolute;
+    top: 45px;
+    left: 39%;
+    z-index: 1;
+  }
+
+.favorite:hover{
+    box-shadow: 0 0 20px 5px rgba(248, 142, 142, 0.7); /* Efecto de brillo usando box-shadow */
+}
+.favorite{
+    text-decoration: none;
+}

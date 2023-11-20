@@ -1,0 +1,48 @@
+.titleFavorite{
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Establece la dirección del flujo como columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+.titleFavorite h2{
+    margin-bottom: 20px;
+}
+.line{
+    background-color: rgb(130, 130, 130);
+    margin-bottom: 20px;
+}
+.image{
+    margin-bottom: 7px ;
+}
+.image {
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .image img {
+    width: 100%; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+  }
+  
+ 
+  .image a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para que el texto sea legible */
+    color: white;
+    padding: 10px;
+    margin: 0;
+    width: 100%; /* Ancho completo del contenedor padre */
+    text-align: center; /* Centra el texto horizontalmente */
+    cursor: pointer;
+  }
+  .image h6{
+    margin-top: 10px;
+  }
+  .alert{
+    display: absolute;
+    top: 0;
+  }

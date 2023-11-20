@@ -1,0 +1,57 @@
+<div class="div"></div>
+  <h2 class="titleCategory">{{animeCategory}}</h2>
+  
+<h6 class="titleCategory1">¡Para que no pierdas la emocion!</h6>
+
+
+
+<div class="content-category">
+  <div class="div-container-category">
+    
+    <div class="row">
+      <h4 class="mb-2 loca">Animes</h4>
+      <div class="col-6 col-md-3 col-lg-2 cursor  main_container" *ngFor="let anime of animes" (click)="onAnimeClick(anime.name, anime._id)">
+            <div class="image" *ngIf="anime.image">
+              <img [src]="url + 'get-image/' + anime.image" alt="{{ anime.name }}">
+            </div>
+            <h6 class="title">{{ anime.name }}</h6>  
+            <div class="hover-text">
+              <h6 class="title">{{anime.name}}</h6>
+              
+              <p class="description">{{ truncateText(anime.description, 135) }}</p> <!-- Limita a 50 caracteres y agrega puntos suspensivos -->
+              <div class="icon">
+                <i class="fas fa-play m-3 icong1" title="Reproducir"></i>
+              </div>
+              <div class="icon2" *ngIf="decodedToken" (click)="addFavoriteAnime($event,decodedToken.id, anime.name)">
+                <i class="fa-regular fa-bookmark m-3 icong1" title="Añadir a favoritos"></i>
+              </div>
+              <div class="icon2" *ngIf="!decodedToken" (click)="toggleModal($event)">
+                <i class="fa-regular fa-bookmark m-3 icong1" title="Añadir a favoritos"></i>
+              </div>
+            </div> 
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="toggleModal($event)">&times;</span>
+    <div class="image-Hinata">
+      <img src="../../../assets/css/img/Hinata.png" >
+    </div>
+    <h3>Inicia sesión o Crea una cuenta</h3>
+    <p>¡Para comentar, anadir serie y peliculas a tus favoritos! Crea una cuenta de OtakuChino o inicia sesión</p>
+    <div class="buttons-sesion">
+      <div class="button-sesion" [routerLink]="['/iniciar-sesion']">
+        INICIA SESION
+      </div>
+      <div class="button-sesion" [routerLink]="['/registrarse']"> 
+        CREA UN CUENTA
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer-components></app-footer-components>

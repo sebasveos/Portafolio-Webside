@@ -1,0 +1,153 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container1 {
+    width: 100%;
+    background: rgb(90, 90, 90);
+}
+
+.centered-li a {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+header .centered-li a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.right-side ul li {
+    height: 100%;
+}
+
+.right-side a {
+    height: 100%;
+}
+
+.titleCategory,
+.titleCategory1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image img {
+    width: 86%;
+    height: 110%;
+    margin-bottom: 10px;
+}
+
+
+.cont {
+    width: 90%;
+    margin: 0 auto;
+    margin: 5px;
+}
+
+.titleCategory {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.titleCategory1 {
+    margin-bottom: 30px;
+}
+
+.loca {
+    text-align: left;
+    margin-left: 12px;
+    margin-top: 10px;
+
+}
+
+.main_container {
+    position: relative;
+    z-index: 1;
+    /* Asegura que el contenido del main_container esté detrás del ícono de favoritos */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.main_container .hover-text {
+    position: absolute;
+    top: 49.5%;
+    /* Ajusta la  verticalmente según tu diseño */
+    left: 42%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: white;
+    opacity: 0;
+    padding: 12px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    width: 95%;
+    height: 100%;
+    /* Ajusta el padding del texto */
+    margin: 0;
+    /* Ajusta el margen del texto */
+    font-size: 14px;
+    /* Ajusta el tamaño del texto y los íconos */
+
+}
+
+
+.main_container:hover .hover-text {
+    opacity: 1.9;
+    /* Mostrar el texto cuando se pasa el mouse sobre el swiper-slide */
+}
+
+.main_container:hover .hover-text .icon,
+.icon1,
+.icon2 {
+    opacity: 1;
+    /* Mostrar el texto adicional cuando se pasa el mouse sobre el swiper-slide */
+}
+
+
+.title {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 13px;
+}
+
+.hover-text .icon,
+.icon1,
+.icon2 {
+  pointer-events: auto;
+}
+
+.hover-text .icon2 {
+  pointer-events: auto;
+}
+
+.icon {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+}
+
+.icon1 {
+    position: absolute;
+    bottom: 0;
+    right: 71%;
+}
+
+.icon2 {
+    position: absolute;
+    bottom: 0;
+    right: 60%;
+    z-index: 2;
+    /* Asegura que el ícono esté por encima del contenido del main_container */
+    cursor: pointer;
+    /* Agrega un indicador de cursor para denotar que es interactivo */
+}
+.button-sesion{
+     margin: 10px;
+}

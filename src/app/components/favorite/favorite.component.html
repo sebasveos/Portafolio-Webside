@@ -1,0 +1,25 @@
+<div class="div"></div>
+
+<div class="titleFavorite">
+  <h2>Mi Lista</h2>
+  <h4>¡Animes Favoritos!</h4>
+</div>
+<div *ngIf="showDeleteMessage" class="alert alert-success">
+  Anime eliminado correctamente.
+</div>
+<div class="content-category">
+  <div class="div-container-category">
+    <div class="line">
+    </div>
+    <div class="row items">
+      <div class="col-md-2 cursor" *ngFor="let anime of animes" >
+        <div class="image" *ngIf="anime.image"  (click)="onAnimeClick(anime.name, anime._id)">
+          <img [src]="url + 'get-image/' + anime.image" *ngIf="anime.image">
+          <h6>{{ anime.name }}</h6>
+          <a (click)="removeFavoriteAnime($event, anime._id)">Quitar de Favoritos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-components></app-footer-components>

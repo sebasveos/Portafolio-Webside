@@ -1,0 +1,38 @@
+.container-category{
+    display: flex;
+    justify-content: center;
+}
+
+.col{
+    color: rgb(110, 110, 110);
+}
+
+.lastFooter{
+    margin-top: 20px;
+    color: rgb(110, 110, 110);
+    height: 50px;
+}
+.col{
+    cursor: pointer;
+}
+.create{
+    width: 100px;
+}
+.start{
+    width: 63px;
+}
+.about{
+    width: 92px;
+}
+.about1{
+    width: 52px;
+}
+.social{
+    width: 75px;
+}
+.create:hover ,.start:hover, .social:hover, .about:hover, .about1:hover{
+    background-color: rgb(183, 38, 181);
+    border-radius: 2px;
+    color: white;
+    transition: 0.5s;
+}
