@@ -9,9 +9,9 @@
             *ngIf="anime.name === 'Sword Art Online' || anime.name === 'Dragon Ball Z' || anime.name == 'Haikyuu' || anime.name == 'Naruto Shippuden' || anime.name == 'One Piece' || anime.name == 'Kimetsu no Yaiba'"
             class="swiper-slide" [attr.data-anime-id]="anime._id" id="{{anime.name}}" (click)="onAnimeClick(anime.name)" >
             <img
-              [src]="'/assets/css/img/Capturas de episodios/' + anime.name + '/' + anime.name + ' sample.jpg' "
+              src="../../../assets/css/img/Capturas de episodios/One Piece/One Piece Anime.png"
               [alt]="anime.name">
-
+          
             <div class="hover-text">
               <h6>{{ anime.name }}</h6>
               <br>
