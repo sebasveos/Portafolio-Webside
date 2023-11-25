@@ -1,12 +1,20 @@
 import { Component, OnInit, Output, EventEmitter, Renderer2, ViewEncapsulation } from '@angular/core';
 import { AnimeService } from 'src/app/services/anime.service';
 import { Global } from 'src/app/services/global';
-import { Anime } from 'src/app/models/anime';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { EpisodeService } from 'src/app/services/episode-service.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { GlobalServiceService } from 'src/app/services/global-service.service';
+
+interface Anime {
+  _id: string;
+  name: string; // Asegúrate de tener esta propiedad en la interfaz Anime
+  description: string;
+  category: string[],
+  // ... otras propiedades del anime
+  isInFavorites?: boolean;
+}
 
 @Component({
   selector: 'app-one-anime',
@@ -19,7 +27,7 @@ export class OneAnimeComponent {
   public animes: Anime[] = []; // Usa un array para almacenar todos los animes favoritos
   public isModalVisible = false;
   public url: string;
-  public anime: Anime;
+  public anime: any;
   public decodedToken: any;
   public isMenuVisible = false;
   public scrollPosition = 0;
@@ -39,13 +47,11 @@ export class OneAnimeComponent {
     private _route: ActivatedRoute,
   ) {
     this.url = Global.url;
-    this.anime = new Anime('', '', '', [], '', 0, '', '');
   }
   ngOnInit() {
     this._route.params.subscribe(params => {
       this.animeName = params['name'];
       this.getAnime(this.animeName);
-      this.userId = params['userId'];
       this.animeId = params['animeId'];
     });
     this.decodedToken = this._globalService.decodeTokenFromCookie();
@@ -64,13 +70,13 @@ export class OneAnimeComponent {
     'Naruto Shippuden': 'narutoShippuden',
   };
 
-  checkFavoriteAnime(userId: string, animeId: string) {
+  checkFavoriteAnime(userId: string, animeId: string, anime:Anime) {
     this._userService.checkFavoriteAnime(userId, animeId).subscribe(
       response => {
         if (response.message === 'Anime found in favorites') {
-          this.isAnimeInFavorites = true;
+          anime.isInFavorites = true;
         } else if (response.message === 'Anime not found in favorites') {
-          this.isAnimeInFavorites = false;
+          anime.isInFavorites = false;
           console.log('El anime no está en favoritos');
         }
       },
@@ -82,18 +88,20 @@ export class OneAnimeComponent {
   }
   removeFavoriteAnime(event: Event, animeId: string) {
     event.stopPropagation();
+    const animeToRemove = this.animes.find(anime => anime._id === animeId);
   
-    this._userService.removeFavoriteAnime(this.userId, animeId).subscribe(
+    if (animeToRemove) {
+    this._userService.removeFavoriteAnime(this.decodedToken.id, animeId).subscribe(
       response => {
         // Realiza las acciones necesarias si es necesario
-        this.animes = this.animes.filter(anime => anime._id !== animeId);
-        this.isAnimeInFavorites = false; // Actualiza el estado según la eliminación
+        animeToRemove.isInFavorites = false;
         this.cdr.detectChanges(); // Forzar la detección de cambios
       },
       error => {
         console.error('Error al eliminar el anime de favoritos', error);
       }
     );
+  }
   }
   
   
@@ -135,16 +143,18 @@ export class OneAnimeComponent {
 
   addFavoriteAnime(event: Event, userId: string, animeId: string): void {
     event.stopPropagation();
-
+    const animeToAdd = this.animes.find(anime => anime._id === animeId);
+    if (animeToAdd) {
     this._userService.addFavoriteAnime(userId, animeId).subscribe(
       response => {
-        this.isAnimeInFavorites = !this.isAnimeInFavorites;
+        animeToAdd.isInFavorites = !animeToAdd.isInFavorites;
         this.cdr.detectChanges(); // Forzar la detección de cambios
       },
       error => {
         console.error('Error al agregar el anime a favoritos', error);
       }
     );
+  }
   }
 
   onAnimeClick(animeCategories: string) {

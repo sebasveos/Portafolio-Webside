@@ -71,6 +71,8 @@ export class HomePageComponent implements OnInit {
   }
 
   checkFavoriteAnime(userId: string, animeId: string,  anime: Anime) {
+    console.log("Hola",anime);
+
     this._userService.checkFavoriteAnime(userId, animeId).subscribe(
       response => {
         if (response.message === 'Anime found in favorites') {
